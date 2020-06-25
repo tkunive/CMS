@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "appInsights1": {
+      "restored": true,
+      "restoreTime": "2020-06-24T07:46:47.779256Z"
+    }
+  },
+  "parameters": {
+    "resourceGroup": {
+      "Type": "resourceGroup",
+      "Value": "ContractManagementService"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "015be8ab-9d9e-4771-862a-250744548916"
+    }
+  }
+}
