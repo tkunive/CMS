@@ -18,11 +18,11 @@ namespace CMS
 {
     public class Startup
     {
-       // private readonly ILogger _logger;
+        //private readonly ILogger _logger;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-           // _logger = logger;
+            //_logger = logger;
         }
 
         public IConfiguration Configuration { get; }
@@ -50,13 +50,13 @@ namespace CMS
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             if (env.IsDevelopment())
             {
-               // _logger.LogInformation("Logging from congifuration");
+              // _logger.LogInformation("Logging from congifuration");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseExceptionHandler("~/system/error");
-                //_logger.LogInformation("Logging from congifuration");
+               // _logger.LogInformation("Logging from congifuration");
             }
             app.UseHttpsRedirection();
 

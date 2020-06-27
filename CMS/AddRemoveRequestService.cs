@@ -10,14 +10,28 @@ using System.Diagnostics.Contracts;
 using Microsoft.Extensions.Logging;
 using Microsoft.ApplicationInsights;
 using System.Runtime.CompilerServices;
+using CMS.Controllers;
 
 namespace CMS
 {
     public class AddRemoveRequestService
     {
 
-       // ILogger logger;
-           public async Task SubmitAddRemoveRequest(AddRemoveRequestCompositeEntity addRemoveRequestCompositeEntity)
+        private readonly ILogger<AddRemoveRequestService> _logger;
+        //private ILogger<ContractController> logger;
+
+        public AddRemoveRequestService(ILogger<AddRemoveRequestService> logger)
+        {
+            _logger = logger;
+        }
+
+        public AddRemoveRequestService()
+        {
+            
+        }
+
+        
+        public void SubmitAddRemoveRequest(AddRemoveRequestCompositeEntity addRemoveRequestCompositeEntity)
         {
             try
             {
@@ -85,7 +99,7 @@ namespace CMS
                     catch(Exception e)
                     {
                         
-                       // logger.LogInformation(e.Message);
+                      _logger.LogError(e ,e.Message);
                     }
 
                     //Send SAP request
@@ -93,23 +107,21 @@ namespace CMS
                      AddRemoveRequestSAPResponse addRemoveRequestSAPResponse = null;
                      try
                      {
-                         addRemoveRequestSAPResponse = await contractAmendmentSAPServices.SendSAPRequest(addRemoveRequestCompositeEntity.ContractAddRemoveRequestDetails);
+                         addRemoveRequestSAPResponse = contractAmendmentSAPServices.SendSAPRequest(addRemoveRequestCompositeEntity.ContractAddRemoveRequestDetails).GetAwaiter().GetResult();
                      }
                      catch (Exception ex)
                      {
                          addRemoveRequestSAPResponse = CreateFailureSAPResponse(addRemoveRequestCompositeEntity.ContractAddRemoveRequestDetails, sAgreementNumber);
-                    //logger.LogInformation(ex.Message);
+                         _logger.LogInformation("SAP Request failed");
+                        _logger.LogError(ex, ex.Message);
                          // objlog.LogException(ex, -1, null, "AddRemoveRequestService", System.Diagnostics.TraceEventType.Error, "", "SubmitAddRemoveRequest");
                          // LogHelper.LogExceptionMessage(ex);
                          //logger.LogException(ex);
-
-
-
                      }
                      finally
                      {
                          UpdateSAPResponse(contractAmendmentRequest, addRemoveRequestSAPResponse);
-
+                        
                          // persist the changes to database.
                          contractDetailsEntities.SaveChanges();
                      }
@@ -122,7 +134,8 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                
+                _logger.LogCritical(ex.Message, ex);
+                throw ex;   
             }
 
 

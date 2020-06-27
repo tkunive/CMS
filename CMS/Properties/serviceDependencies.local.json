@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "appInsights1": {
-      "type": "appInsights.sdk",
-      "connectionId": null
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/microsoft.insights/components/ContractManagementService",
+      "type": "appInsights.azure",
+      "connectionId": "APPINSIGHTS_INSTRUMENTATIONKEY",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }
