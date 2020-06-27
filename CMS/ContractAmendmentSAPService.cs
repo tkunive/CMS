@@ -13,20 +13,16 @@ using System.Xml.Serialization;
 using CMS.Enumerations;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Logging;
+using CMS.Controllers;
 
 namespace CMS
 {
     public class ContractAmendmentSAPService
     {
-        private readonly ILogger<ContractAmendmentSAPService> _logger;
-        public ContractAmendmentSAPService(ILogger<ContractAmendmentSAPService> logger)
-        {
-            _logger = logger;
-        }
+       
+        
 
-        public ContractAmendmentSAPService()
-        {
-        }
+        
 
         AddRemoveRequestCompositeEntity _addremoveRequest = null;
 
@@ -97,7 +93,7 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+               // _logger.LogError(ex, ex.Message);
                 throw ex;
             }
             

@@ -17,18 +17,8 @@ namespace CMS
     public class AddRemoveRequestService
     {
 
-        private readonly ILogger<AddRemoveRequestService> _logger;
-        //private ILogger<ContractController> logger;
-
-        public AddRemoveRequestService(ILogger<AddRemoveRequestService> logger)
-        {
-            _logger = logger;
-        }
-
-        public AddRemoveRequestService()
-        {
-            
-        }
+        //private readonly ILogger<AddRemoveRequestService> _logger;
+       
 
         
         public void SubmitAddRemoveRequest(AddRemoveRequestCompositeEntity addRemoveRequestCompositeEntity)
@@ -49,7 +39,7 @@ namespace CMS
 
                     userInfo = GetEntityByDTOKey(addRemoveRequestCompositeEntity.UserInfo);
 
-
+                   // _logger.LogInformation("Logging from addremoverequestservice");
 
                     //UserInfo userInfo = mapper. userMap<UserInfo>(addRemoveRequestCompositeEntity.UserInfo);
                     var customerNumber = addRemoveRequestCompositeEntity.AssociatedSoldTo;
@@ -98,8 +88,8 @@ namespace CMS
                         contractDetailsEntities.SaveChanges(); }
                     catch(Exception e)
                     {
-                        
-                      _logger.LogError(e ,e.Message);
+
+                        throw e;
                     }
 
                     //Send SAP request
@@ -112,8 +102,7 @@ namespace CMS
                      catch (Exception ex)
                      {
                          addRemoveRequestSAPResponse = CreateFailureSAPResponse(addRemoveRequestCompositeEntity.ContractAddRemoveRequestDetails, sAgreementNumber);
-                         _logger.LogInformation("SAP Request failed");
-                        _logger.LogError(ex, ex.Message);
+                        
                          // objlog.LogException(ex, -1, null, "AddRemoveRequestService", System.Diagnostics.TraceEventType.Error, "", "SubmitAddRemoveRequest");
                          // LogHelper.LogExceptionMessage(ex);
                          //logger.LogException(ex);
@@ -134,7 +123,7 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                _logger.LogCritical(ex.Message, ex);
+                
                 throw ex;   
             }
 
