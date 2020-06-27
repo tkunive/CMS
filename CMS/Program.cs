@@ -29,7 +29,7 @@ namespace CMS
                      webBuilder.UseStartup<Startup>();
                  }).ConfigureLogging(logging => {
                      logging.AddApplicationInsights("f5cc8ecb-4b99-413f-ae88-cc8b343f7d6d");
-                     logging.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);            });
+                     logging.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Information);            });
         /* public static IHostBuilder CreateHostBuilder(string[] args) =>
              Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
              {
