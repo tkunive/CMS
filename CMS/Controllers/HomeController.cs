@@ -14,7 +14,7 @@ namespace CMS.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            return Ok("Welcome");
+            return Ok("Welcome people!!");
         }
     }
 }
