@@ -10,7 +10,7 @@ namespace CMS.Models
     {
         [Key]
         [Column("ContractAmendmentRequestID")]
-        public long ContractAmendmentRequestID { get; set; }
+        public long ContractAmendmentRequestId { get; set; }
         [Required]
         [StringLength(20)]
         public string ContractNumber { get; set; }
@@ -35,12 +35,12 @@ namespace CMS.Models
         public DateTime DateOnPriceList { get; set; }
         [Column("COAEndItemPartNumber")]
         [StringLength(30)]
-        public string COAEndItemPartNumber { get; set; }
+        public string CoaendItemPartNumber { get; set; }
         public short Action { get; set; }
         public short Status { get; set; }
         public bool DisplayStatus { get; set; }
 
-        [ForeignKey(nameof(ContractAmendmentRequestID))]
+        [ForeignKey(nameof(ContractAmendmentRequestId))]
         [InverseProperty("ContractAmendmentRequestARDetails")]
         public virtual ContractAmendmentRequest ContractAmendmentRequest { get; set; }
     }

@@ -100,3 +100,4 @@ C:\Users\t-kunive\source\repos\CMS\CMS\obj\Debug\netcoreapp3.1\staticwebassets\C
 C:\Users\t-kunive\source\repos\CMS\CMS\obj\Debug\netcoreapp3.1\CMS.dll
 C:\Users\t-kunive\source\repos\CMS\CMS\obj\Debug\netcoreapp3.1\CMS.pdb
 C:\Users\t-kunive\source\repos\CMS\CMS\obj\Debug\netcoreapp3.1\CMS.genruntimeconfig.cache
+C:\Users\t-kunive\source\repos\CMS\CMS\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.ContractManagementServices - Web Deploy.json

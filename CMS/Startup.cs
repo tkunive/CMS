@@ -50,12 +50,13 @@ namespace CMS
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             if (env.IsDevelopment())
             {
-              // _logger.LogInformation("Logging from congifuration");
-                app.UseDeveloperExceptionPage();
+                // _logger.LogInformation("Logging from congifuration");
+                //app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/error-local-development");
             }
             else
             {
-                app.UseExceptionHandler("~/system/error");
+                app.UseExceptionHandler("/error");
                // _logger.LogInformation("Logging from congifuration");
             }
             app.UseHttpsRedirection();

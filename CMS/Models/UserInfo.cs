@@ -13,11 +13,11 @@ namespace CMS.Models
         [Required]
         [Column("F_Name")]
         [StringLength(100)]
-        public string FName { get; set; }
+        public string F_Name { get; set; }
         [Required]
         [Column("L_Name")]
         [StringLength(100)]
-        public string LName { get; set; }
+        public string L_Name { get; set; }
         [Required]
         [Column("EMail")]
         [StringLength(128)]
@@ -26,15 +26,15 @@ namespace CMS.Models
         public string Fax { get; set; }
         [Column("Special_Info")]
         [StringLength(100)]
-        public string SpecialInfo { get; set; }
+        public string Special_Info { get; set; }
         [Column("Passport_ID_Hi")]
-        public int? PassportIdHi { get; set; }
+        public int? Passport_ID_Hi { get; set; }
         [Column("Passport_ID_Lo")]
-        public int? PassportIdLo { get; set; }
+        public int? Passport_ID_Lo { get; set; }
         [Column("Primary_Cust_ID")]
-        public int? PrimaryCustId { get; set; }
+        public int? Primary_Cust_ID { get; set; }
         [Column("Geography_ID")]
-        public int? GeographyId { get; set; }
+        public int? Geography_ID { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? LastLoginDate { get; set; }
         [StringLength(1)]
@@ -47,9 +47,9 @@ namespace CMS.Models
         public string TelExt { get; set; }
         [Column("skipdc")]
         [StringLength(1)]
-        public string Skipdc { get; set; }
+        public string skipdc { get; set; }
         [Column("LCID")]
-        public int? Lcid { get; set; }
+        public int? LCID { get; set; }
         [StringLength(510)]
         public string JobTitle { get; set; }
         public int? TimeZone { get; set; }

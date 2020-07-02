@@ -24,11 +24,11 @@ namespace CMS.Controllers
             try
             {
 
-                /*AddRemoveRequestService addRemoveRequestService = new AddRemoveRequestService();
+                AddRemoveRequestService addRemoveRequestService = new AddRemoveRequestService();
                 addRemoveRequestService.SubmitAddRemoveRequest(addRemoveRequestCompositeEntity);
                 _logger.LogInformation("Logging from Contract controller try block");
-                return Ok("Challenge Accepted");*/
-                return new JsonResult("Here");
+                return Ok("Challenge Accepted");
+                //return new JsonResult("Here");
             }
             catch (Exception ex)
             {

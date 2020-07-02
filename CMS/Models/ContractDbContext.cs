@@ -24,7 +24,8 @@ namespace CMS.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("data source=(localdb)\\MSSQLLocalDB;initial catalog=ContractDetails;integrated security=True;MultipleActiveResultSets=True");
+                // optionsBuilder.UseSqlServer("Server=IDC20Intern375\\SQLEXPRESS;Database=ContractDetails;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=IDC20Intern375,1433;Initial Catalog=ContractDetails;User Id=nivedita4299;Password =Anandita.28;");
             }
         }
 
@@ -43,11 +44,11 @@ namespace CMS.Models
 
             modelBuilder.Entity<ContractAmendmentRequestARDetails>(entity =>
             {
-                entity.HasKey(e => new { e.ContractAmendmentRequestID, e.LicensableID });
+                entity.HasKey(e => new { e.ContractAmendmentRequestId, e.LicensableID });
 
                 entity.Property(e => e.LicensableID).IsUnicode(false);
 
-                entity.Property(e => e.COAEndItemPartNumber).IsUnicode(false);
+                entity.Property(e => e.CoaendItemPartNumber).IsUnicode(false);
 
                 entity.Property(e => e.ContractNumber).IsUnicode(false);
 
@@ -61,7 +62,7 @@ namespace CMS.Models
 
                 entity.HasOne(d => d.ContractAmendmentRequest)
                     .WithMany(p => p.ContractAmendmentRequestARDetails)
-                    .HasForeignKey(d => d.ContractAmendmentRequestID)
+                    .HasForeignKey(d => d.ContractAmendmentRequestId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ContractAddRemoveRequestDetails_ContractAmendmentRequest");
             });
@@ -81,7 +82,7 @@ namespace CMS.Models
                     .IsUnicode(false)
                     .IsFixedLength();
 
-                entity.Property(e => e.Skipdc)
+                entity.Property(e => e.skipdc)
                     .IsUnicode(false)
                     .IsFixedLength();
 
